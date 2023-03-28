@@ -16,6 +16,7 @@ int pop(stack *s);
 int topo(stack *s);
 int isStackEmpty(stack *s);
 int isStackFull(stack *s);
+void printStack(stack *s);
 
 int main()
 {
@@ -33,6 +34,23 @@ int main()
   {
     printf("A pilha não está cheia\n");
   }
+
+  printStack(p);
+}
+
+void printStack(stack *s)
+{
+  if (isStackEmpty(s))
+  {
+    printf("Pilha vazia\n");
+    return;
+  }
+  printf("Pilha:\n");
+  for (int i = 0; i < s->topo; i++)
+  {
+    printf("%d\n", s->dados[i]);
+  }
+  printf("\n");
 }
 
 stack *newStack()
