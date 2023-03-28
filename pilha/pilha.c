@@ -6,14 +6,14 @@
 
 typedef struct
 {
-  int top;
-  int data[N];
+  int topo;
+  int dados[N];
 } stack;
 
 stack *newStack();
 void push(stack *s, int value);
 int pop(stack *s);
-int top(stack *s);
+int topo(stack *s);
 int isStackEmpty(stack *s);
 int isStackFull(stack *s);
 
@@ -38,7 +38,7 @@ int main()
 stack *newStack()
 {
   stack *p = (stack *)malloc(sizeof(stack));
-  p->top = 0;
+  p->topo = 0;
   return p;
 }
 
@@ -49,8 +49,8 @@ void push(stack *s, int value)
     printf("A pilha já está cheia!\n");
     return;
   }
-  s->data[s->top] = value;
-  s->top++;
+  s->dados[s->topo] = value;
+  s->topo++;
 }
 
 int pop(stack *s)
@@ -60,26 +60,26 @@ int pop(stack *s)
     printf("Pilha vazia\n");
     return -1;
   }
-  s->top = s->top - 1;
-  return s->data[s->top];
+  s->topo = s->topo - 1;
+  return s->dados[s->topo];
 }
 
-int top(stack *s)
+int topo(stack *s)
 {
   if (isStackEmpty(s))
   {
     printf("Pilha vazia\n");
     return -1;
   }
-  return s->data[s->top - 1];
+  return s->dados[s->topo - 1];
 }
 
 int isStackFull(stack *s)
 {
-  return s->top == N;
+  return s->topo == N;
 }
 
 int isStackEmpty(stack *s)
 {
-  return s->top == 0;
+  return s->topo == 0;
 }
